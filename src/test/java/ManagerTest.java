@@ -16,10 +16,23 @@ class ManagerTest {
     Poster ninth = new Poster(9, "Молодой человек", "комедия");
     Poster tenth = new Poster(10, "Пропавшая", "боевик");
     Poster eleventh = new Poster(11, "Кощей. Похититель невест", "мультфильм");
+    Poster twelfth = new Poster(12, "12", "драмма");
 
 
     @Test
-    void shouldAdd() {
+    void shouldAddLessThenDefault() {
+        repo.add(first);
+        repo.add(second);
+        repo.add(third);
+        repo.add(fourth);
+
+        Poster[] expected = {first, second, third, fourth};
+        assertArrayEquals(expected, repo.findAll());
+    }
+
+    @Test
+    void shouldAddMoreThenDefault() {
+        Manager repo = new Manager(12);
         repo.add(first);
         repo.add(second);
         repo.add(third);
@@ -29,8 +42,28 @@ class ManagerTest {
         repo.add(seventh);
         repo.add(eighth);
         repo.add(ninth);
+        repo.add(tenth);
+        repo.add(eleventh);
+        repo.add(twelfth);
 
-        Poster[] expected = {first, second, third, fourth, fifth, sixth, seventh, eighth, ninth};
+        Poster[] expected = {first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth};
+        assertArrayEquals(expected, repo.findAll());
+    }
+
+    @Test
+    void shouldAddDefault() {
+        repo.add(first);
+        repo.add(second);
+        repo.add(third);
+        repo.add(fourth);
+        repo.add(fifth);
+        repo.add(sixth);
+        repo.add(seventh);
+        repo.add(eighth);
+        repo.add(ninth);
+        repo.add(tenth);
+
+        Poster[] expected = {first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth};
         assertArrayEquals(expected, repo.findAll());
     }
 
@@ -60,7 +93,7 @@ class ManagerTest {
 
     @Test
     void shouldCheckArrayWithUsersConstructor() {
-        Manager repo = new Manager(5);
+        Manager repo = new Manager(4);
         repo.add(first);
         repo.add(second);
         repo.add(third);
@@ -68,12 +101,8 @@ class ManagerTest {
         repo.add(fifth);
         repo.add(sixth);
         repo.add(seventh);
-        repo.add(eighth);
-        repo.add(ninth);
-        repo.add(tenth);
-        repo.add(eleventh);
 
-        Poster[] expected = {first, second, third, fourth, fifth};
+        Poster[] expected = {first, second, third, fourth};
         assertArrayEquals(expected, repo.findAll());
     }
 }
