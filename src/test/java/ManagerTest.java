@@ -105,4 +105,68 @@ class ManagerTest {
         Poster[] expected = {first, second, third, fourth};
         assertArrayEquals(expected, repo.findAll());
     }
+
+    @Test
+    void shouldCheckArrayWithUsersConstructorFindLast() {
+        Manager repo = new Manager(5);
+        repo.add(first);
+        repo.add(second);
+        repo.add(third);
+        repo.add(fourth);
+        repo.add(fifth);
+        repo.add(sixth);
+        repo.add(seventh);
+
+        Poster[] expected = {fifth, fourth, third, second, first};
+        assertArrayEquals(expected, repo.findLast());
+    }
+
+    @Test
+    void shouldAddLessThenDefaultFindLast() {
+        repo.add(first);
+        repo.add(second);
+        repo.add(third);
+        repo.add(fourth);
+
+        Poster[] expected = {fourth, third, second, first};
+        assertArrayEquals(expected, repo.findLast());
+    }
+
+    @Test
+    void shouldAddMoreThenDefaultFindLast() {
+        Manager repo = new Manager(12);
+        repo.add(first);
+        repo.add(second);
+        repo.add(third);
+        repo.add(fourth);
+        repo.add(fifth);
+        repo.add(sixth);
+        repo.add(seventh);
+        repo.add(eighth);
+        repo.add(ninth);
+        repo.add(tenth);
+        repo.add(eleventh);
+        repo.add(twelfth);
+
+        Poster[] expected = {twelfth, eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        assertArrayEquals(expected, repo.findLast());
+    }
+
+    @Test
+    void shouldAddDefaultFindLast() {
+        repo.add(first);
+        repo.add(second);
+        repo.add(third);
+        repo.add(fourth);
+        repo.add(fifth);
+        repo.add(sixth);
+        repo.add(seventh);
+        repo.add(eighth);
+        repo.add(ninth);
+        repo.add(tenth);
+
+        Poster[] expected = {tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        assertArrayEquals(expected, repo.findLast());
+    }
+
 }
