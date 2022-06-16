@@ -16,9 +16,9 @@ public class Manager {
         System.arraycopy(items, 0, tmp, 0, items.length);
         //последняя ячейка
         tmp[tmp.length - 1] = newItem;
-        if (tmp.length > defaultLength) {
+/*        if (tmp.length > defaultLength) {
             return;
-        }
+        }*/
         this.items = tmp;
     }
 
@@ -27,8 +27,13 @@ public class Manager {
     }
 
     public Poster[] findLast() {
-        Poster[] result = new Poster[items.length];
-        // перебираем массив в прямом порядке и кладём в результаты в обратном
+        int resultLength = items.length;
+        if (resultLength >= defaultLength) {
+            resultLength = defaultLength;
+        } else {
+            resultLength = items.length;
+        }
+        Poster[] result = new Poster[resultLength];
         for (int i = 0; i < result.length; i++) {
             int index = items.length - i - 1;
             result[i] = items[index];

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 class ManagerTest {
 
-    private Manager repo = new Manager();
+    private Manager manager = new Manager();
     Poster first = new Poster(1, "Бладшот", "боевик");
     Poster second = new Poster(2, "Вперед", "мультфильм");
     Poster third = new Poster(3, "Отель Белград", "комедия");
@@ -21,152 +21,152 @@ class ManagerTest {
 
     @Test
     void shouldAddLessThenDefault() {
-        repo.add(first);
-        repo.add(second);
-        repo.add(third);
-        repo.add(fourth);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
 
         Poster[] expected = {first, second, third, fourth};
-        assertArrayEquals(expected, repo.findAll());
+        assertArrayEquals(expected, manager.findAll());
     }
 
     @Test
     void shouldAddMoreThenDefault() {
-        Manager repo = new Manager(12);
-        repo.add(first);
-        repo.add(second);
-        repo.add(third);
-        repo.add(fourth);
-        repo.add(fifth);
-        repo.add(sixth);
-        repo.add(seventh);
-        repo.add(eighth);
-        repo.add(ninth);
-        repo.add(tenth);
-        repo.add(eleventh);
-        repo.add(twelfth);
+        Manager manager = new Manager(12);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
+        manager.add(eighth);
+        manager.add(ninth);
+        manager.add(tenth);
+        manager.add(eleventh);
+        manager.add(twelfth);
 
         Poster[] expected = {first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth};
-        assertArrayEquals(expected, repo.findAll());
+        assertArrayEquals(expected, manager.findAll());
     }
 
     @Test
     void shouldAddDefault() {
-        repo.add(first);
-        repo.add(second);
-        repo.add(third);
-        repo.add(fourth);
-        repo.add(fifth);
-        repo.add(sixth);
-        repo.add(seventh);
-        repo.add(eighth);
-        repo.add(ninth);
-        repo.add(tenth);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
+        manager.add(eighth);
+        manager.add(ninth);
+        manager.add(tenth);
 
         Poster[] expected = {first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth};
-        assertArrayEquals(expected, repo.findAll());
+        assertArrayEquals(expected, manager.findAll());
     }
 
     @Test
     void shouldFindLast() {
-        repo.add(first);
-        repo.add(second);
-        repo.add(third);
-        repo.add(fourth);
-        repo.add(fifth);
-        repo.add(sixth);
-        repo.add(seventh);
-        repo.add(eighth);
-        repo.add(ninth);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
+        manager.add(eighth);
+        manager.add(ninth);
 
         Poster[] expected = {ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
-        assertArrayEquals(expected, repo.findLast());
+        assertArrayEquals(expected, manager.findLast());
     }
 
     @Test
     void shouldShowOnePositionArray() {
-        repo.add(first);
+        manager.add(first);
 
         Poster[] expected = {first};
-        assertArrayEquals(expected, repo.findAll());
+        assertArrayEquals(expected, manager.findAll());
     }
 
     @Test
     void shouldCheckArrayWithUsersConstructor() {
-        Manager repo = new Manager(4);
-        repo.add(first);
-        repo.add(second);
-        repo.add(third);
-        repo.add(fourth);
-        repo.add(fifth);
-        repo.add(sixth);
-        repo.add(seventh);
+        Manager manager = new Manager(4);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
 
-        Poster[] expected = {first, second, third, fourth};
-        assertArrayEquals(expected, repo.findAll());
+        Poster[] expected = {seventh, sixth, fifth, fourth};
+        assertArrayEquals(expected, manager.findLast());
     }
 
     @Test
     void shouldCheckArrayWithUsersConstructorFindLast() {
-        Manager repo = new Manager(5);
-        repo.add(first);
-        repo.add(second);
-        repo.add(third);
-        repo.add(fourth);
-        repo.add(fifth);
-        repo.add(sixth);
-        repo.add(seventh);
+        Manager manager = new Manager(5);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
 
-        Poster[] expected = {fifth, fourth, third, second, first};
-        assertArrayEquals(expected, repo.findLast());
+        Poster[] expected = {seventh, sixth, fifth, fourth, third};
+        assertArrayEquals(expected, manager.findLast());
     }
 
     @Test
     void shouldAddLessThenDefaultFindLast() {
-        repo.add(first);
-        repo.add(second);
-        repo.add(third);
-        repo.add(fourth);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
 
         Poster[] expected = {fourth, third, second, first};
-        assertArrayEquals(expected, repo.findLast());
+        assertArrayEquals(expected, manager.findLast());
     }
 
     @Test
     void shouldAddMoreThenDefaultFindLast() {
-        Manager repo = new Manager(12);
-        repo.add(first);
-        repo.add(second);
-        repo.add(third);
-        repo.add(fourth);
-        repo.add(fifth);
-        repo.add(sixth);
-        repo.add(seventh);
-        repo.add(eighth);
-        repo.add(ninth);
-        repo.add(tenth);
-        repo.add(eleventh);
-        repo.add(twelfth);
+        Manager manager = new Manager(12);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
+        manager.add(eighth);
+        manager.add(ninth);
+        manager.add(tenth);
+        manager.add(eleventh);
+        manager.add(twelfth);
 
         Poster[] expected = {twelfth, eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
-        assertArrayEquals(expected, repo.findLast());
+        assertArrayEquals(expected, manager.findLast());
     }
 
     @Test
     void shouldAddDefaultFindLast() {
-        repo.add(first);
-        repo.add(second);
-        repo.add(third);
-        repo.add(fourth);
-        repo.add(fifth);
-        repo.add(sixth);
-        repo.add(seventh);
-        repo.add(eighth);
-        repo.add(ninth);
-        repo.add(tenth);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
+        manager.add(eighth);
+        manager.add(ninth);
+        manager.add(tenth);
 
         Poster[] expected = {tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
-        assertArrayEquals(expected, repo.findLast());
+        assertArrayEquals(expected, manager.findLast());
     }
 
 }
